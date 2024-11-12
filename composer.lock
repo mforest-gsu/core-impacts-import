@@ -396,16 +396,16 @@
         },
         {
             "name": "mjfk23/brightspace-api",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjfk23/brightspace-api.git",
-                "reference": "64b450ce275a8490e7bdd988050614ff9245875f"
+                "reference": "7ceef8245689af29749b4ae73556887ce54c075b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mjfk23/brightspace-api/zipball/64b450ce275a8490e7bdd988050614ff9245875f",
-                "reference": "64b450ce275a8490e7bdd988050614ff9245875f",
+                "url": "https://api.github.com/repos/mjfk23/brightspace-api/zipball/7ceef8245689af29749b4ae73556887ce54c075b",
+                "reference": "7ceef8245689af29749b4ae73556887ce54c075b",
                 "shasum": ""
             },
             "require": {
@@ -441,7 +441,7 @@
                 "source": "https://github.com/mjfk23/brightspace-api",
                 "wiki": "https://github.com/mjfk23/brightspace-api/wiki"
             },
-            "time": "2024-11-12T13:31:32+00:00"
+            "time": "2024-11-12T19:21:39+00:00"
         },
         {
             "name": "mjfk23/gadget-console",
@@ -558,16 +558,16 @@
         },
         {
             "name": "mjfk23/gadget-http",
-            "version": "v1.0.6",
+            "version": "v1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mjfk23/gadget-http.git",
-                "reference": "0df1f42bb60b060415070d4fc3e872243b161951"
+                "reference": "6e0d9c901e4286787d61ba3505677dcfb9a19112"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mjfk23/gadget-http/zipball/0df1f42bb60b060415070d4fc3e872243b161951",
-                "reference": "0df1f42bb60b060415070d4fc3e872243b161951",
+                "url": "https://api.github.com/repos/mjfk23/gadget-http/zipball/6e0d9c901e4286787d61ba3505677dcfb9a19112",
+                "reference": "6e0d9c901e4286787d61ba3505677dcfb9a19112",
                 "shasum": ""
             },
             "require": {
@@ -611,7 +611,7 @@
                 "source": "https://github.com/mjfk23/gadget-http",
                 "wiki": "https://github.com/mjfk23/gadget-http/wiki"
             },
-            "time": "2024-11-12T11:48:44+00:00"
+            "time": "2024-11-12T19:00:47+00:00"
         },
         {
             "name": "mjfk23/gadget-log",
