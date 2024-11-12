@@ -9,6 +9,7 @@
     "mjfk23/brightspace-api": "^1.0",
     "mjfk23/gadget-console": "^1.0",
     "mjfk23/gadget-http": "^1.0",
+    "paragonie/sodium_compat": "^2.1",
     "symfony/console": "6.4.*",
     "symfony/dotenv": "6.4.*",
     "symfony/flex": "^2",
