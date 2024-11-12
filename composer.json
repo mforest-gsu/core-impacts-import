@@ -15,7 +15,7 @@
     "symfony/framework-bundle": "6.4.*",
     "symfony/monolog-bundle": "*",
     "symfony/process": "6.4.*",
-    "symfony/requirements-checker": "*",
+    "symfony/requirements-checker": "2.0.1",
     "symfony/runtime": "6.4.*",
     "symfony/yaml": "6.4.*"
   },
