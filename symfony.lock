@@ -1,0 +1,130 @@
+{
+    "mjfk23/brightspace-api": {
+        "version": "v1.0.7"
+    },
+    "mjfk23/gadget-console": {
+        "version": "v1.0.6"
+    },
+    "mjfk23/gadget-core": {
+        "version": "v1.0.4"
+    },
+    "mjfk23/gadget-http": {
+        "version": "v1.0.6"
+    },
+    "mjfk23/gadget-log": {
+        "version": "v1.0.2"
+    },
+    "php-http/discovery": {
+        "version": "1.20",
+        "recipe": {
+            "repo": "github.com/mjfk23/symfony-recipes",
+            "branch": "main",
+            "version": "1.19",
+            "ref": "4bf6c646da7ba4a5d6acc49d5f9b9fbdcdeae7b2"
+        },
+        "files": [
+            "config/packages/http_discovery.yaml"
+        ]
+    },
+    "phpstan/phpstan": {
+        "version": "1.12",
+        "recipe": {
+            "repo": "github.com/mjfk23/symfony-recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "0da691b26c3a2ea2c0c6350cebfe3e0765cd6fdc"
+        },
+        "files": [
+            "phpstan.neon.dist"
+        ]
+    },
+    "squizlabs/php_codesniffer": {
+        "version": "3.11",
+        "recipe": {
+            "repo": "github.com/mjfk23/symfony-recipes",
+            "branch": "main",
+            "version": "3.6",
+            "ref": "8ab46c3495b0fcdfed304ba11f2fa4f3f89a98f3"
+        },
+        "files": [
+            "phpcs.xml.dist"
+        ]
+    },
+    "symfony/console": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "1781ff40d8a17d87cf53f8d4cf0c8346ed2bb461"
+        },
+        "files": [
+            "bin/console"
+        ]
+    },
+    "symfony/flex": {
+        "version": "2.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "146251ae39e06a95be0fe3d13c807bcf3938b172"
+        },
+        "files": [
+            ".env"
+        ]
+    },
+    "symfony/framework-bundle": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.4",
+            "ref": "32126346f25e1cee607cc4aa6783d46034920554"
+        },
+        "files": [
+            "config/packages/cache.yaml",
+            "config/packages/framework.yaml",
+            "config/preload.php",
+            "config/routes/framework.yaml",
+            "config/services.yaml",
+            "public/index.php",
+            "src/Controller/.gitignore",
+            "src/Kernel.php"
+        ]
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.10",
+        "recipe": {
+            "repo": "github.com/mjfk23/symfony-recipes",
+            "branch": "main",
+            "version": "3.7",
+            "ref": "29694021fb7ca5281446572df9e9f4584f1d492d"
+        },
+        "files": [
+            "config/packages/monolog.yaml"
+        ]
+    },
+    "symfony/requirements-checker": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.0",
+            "ref": "02c6e4b9b117c39e8a23eab7f3840ef6e62293b9"
+        }
+    },
+    "symfony/routing": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.2",
+            "ref": "e0a11b4ccb8c9e70b574ff5ad3dfdcd41dec5aa6"
+        },
+        "files": [
+            "config/packages/routing.yaml",
+            "config/routes.yaml"
+        ]
+    }
+}

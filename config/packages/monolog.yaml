@@ -1,0 +1,30 @@
+parameters:
+  log_path: '%kernel.logs_dir%/%kernel.environment%.log'
+  log_level: info
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+  monolog.formatter.main:
+    class: Gadget\Log\Monolog\Formatter\ConsoleLogFormatter
+
+monolog:
+  channels:
+    - deprecation
+  handlers:
+    main:
+      type: rotating_file
+      path: '%env(string:default:log_path:LOG_PATH)%'
+      level: '%env(string:default:log_level:LOG_LEVEL)%'
+      formatter: monolog.formatter.main
+      channels: ['!event']
+    console:
+      type: console
+      process_psr_3_messages: false
+      channels: ['!event', '!doctrine']
+    deprecation:
+      type: stream
+      channels: [deprecation]
+      path: php://stderr
+      formatter: monolog.formatter.json
