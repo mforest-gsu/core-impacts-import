@@ -2,6 +2,12 @@
     "mjfk23/brightspace-api": {
         "version": "v1.0.7"
     },
+    "mjfk23/brightspace-api-core": {
+        "version": "v2.0.2"
+    },
+    "mjfk23/gadget-cache": {
+        "version": "v2.0.0"
+    },
     "mjfk23/gadget-console": {
         "version": "v1.0.6"
     },
@@ -12,6 +18,12 @@
         "version": "v1.0.6"
     },
     "mjfk23/gadget-log": {
+        "version": "v1.0.2"
+    },
+    "mjfk23/gadget-oauth": {
+        "version": "v2.0.1"
+    },
+    "mjfk23/gadget-process": {
         "version": "v1.0.2"
     },
     "php-http/discovery": {

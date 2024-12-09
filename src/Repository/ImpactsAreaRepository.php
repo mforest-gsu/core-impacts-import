@@ -7,7 +7,6 @@ namespace Gsu\CoreImpactsImport\Repository;
 use Gadget\Cache\CacheItemPool;
 use Gadget\Io\Cast;
 use Gsu\CoreImpactsImport\Model\ImpactsArea;
-use Psr\Cache\CacheItemInterface;
 
 final class ImpactsAreaRepository
 {
@@ -21,22 +20,12 @@ final class ImpactsAreaRepository
 
 
     /**
-     * @return CacheItemInterface
-     */
-    private function getAreas(): CacheItemInterface
-    {
-        return $this->cache->get('areas');
-    }
-
-
-    /**
      * @return ImpactsArea[]
      */
     public function fetch(): array
     {
-        $cacheItem = $this->getAreas();
         return array_filter(
-            $cacheItem->isHit() ? Cast::toArray($cacheItem->get()) : [],
+            Cast::toArray($this->cache->get('areas') ?? []),
             fn(mixed $v): bool => is_object($v) && $v instanceof ImpactsArea
         );
     }
@@ -48,6 +37,6 @@ final class ImpactsAreaRepository
      */
     public function store(array $areas): bool
     {
-        return $this->cache->save($this->getAreas()->set($areas));
+        return $this->cache->set('areas', $areas);
     }
 }

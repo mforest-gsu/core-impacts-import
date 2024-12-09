@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Gsu\CoreImpactsImport\Cache;
 
+use Gadget\Io\Cast;
 use Gadget\Io\File;
 use Gadget\Io\JSON;
 use Gsu\CoreImpactsImport\Model\ImpactsArea;
@@ -25,9 +26,10 @@ final class AreasCacheWarmer implements CacheWarmerInterface
         string $cacheDir,
         ?string $buildDir = null
     ): array {
+        $warmupFile = new File(__DIR__ . '/../Resources/ImpactsAreas.json');
         $this->areasRepository->store(array_map(
             ImpactsArea::create(...),
-            JSON::decode(File::getContents(__DIR__ . '/../Resources/ImpactsAreas.json'))
+            Cast::toArray(JSON::decode($warmupFile->getContents()))
         ));
 
         return [];

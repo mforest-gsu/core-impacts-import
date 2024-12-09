@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Gsu\CoreImpactsImport\Repository;
 
-use Gsu\CoreImpactsImport\API\BrightspaceAPI;
+use Brightspace\Api\BrightspaceApi;
+use Brightspace\Api\OrgUnit\Model\OrgUnitType;
+use Gadget\Cache\CacheItemPool;
 use Gsu\CoreImpactsImport\Model\ImpactsArea;
 use Gsu\CoreImpactsImport\Model\ImpactsCourse;
 
@@ -14,11 +16,30 @@ final class ImpactsCourseRepository
     private array $courses = [];
 
 
-    /**
-     * @param BrightspaceAPI $brightspaceAPI
-     */
-    public function __construct(private BrightspaceAPI $brightspaceAPI)
+    public function __construct(
+        private CacheItemPool $cache,
+        private BrightspaceApi $brightspaceApi
+    ) {
+        $this->cache = $cache->withNamespace(self::class);
+    }
+
+
+    /** @return array<int,ImpactsCourse> */
+    public function fetchQueue(): array
     {
+        /** @var array<int,ImpactsCourse> $courses */
+        $courses = $this->cache->get('courses') ?? [];
+        return $courses;
+    }
+
+
+    /**
+     * @param array<int,ImpactsCourse> $courses
+     * @return bool
+     */
+    public function storeQueue(array &$courses): bool
+    {
+        return $this->cache->set('courses', $courses);
     }
 
 
@@ -28,22 +49,20 @@ final class ImpactsCourseRepository
      */
     public function fetch(ImpactsArea $area): iterable
     {
-        $courses = $this->brightspaceAPI->getCourses(
+        $courseOfferings = $this->brightspaceApi->orgUnit->listDescendants(
             orgUnitId: $area->id,
-            orgUnitType: 3,
-            firstChild: $area->startCourse
+            orgUnitType: OrgUnitType::COURSE_OFFERING,
+            bookmark: "{$area->id}_{$area->startCourse}"
         );
 
-        foreach ($courses as $courseId) {
-            if (!isset($this->courses[$courseId])) {
-                $this->courses[$courseId] = new ImpactsCourse(
-                    $courseId,
-                    $this->brightspaceAPI->getRegistry(
-                        $this->brightspaceAPI->getRegistryId($courseId)
-                    )
+        foreach ($courseOfferings as $courseOffering) {
+            if (!isset($this->courses[$courseOffering->Identifier])) {
+                $this->courses[$courseOffering->Identifier] = new ImpactsCourse(
+                    $courseOffering->Identifier,
+                    $this->brightspaceApi->outcome->get($courseOffering->Identifier) ?? throw new \RuntimeException()
                 );
             }
-            yield $this->courses[$courseId];
+            yield $this->courses[$courseOffering->Identifier];
         }
     }
 
@@ -54,6 +73,6 @@ final class ImpactsCourseRepository
      */
     public function store(ImpactsCourse $course): bool
     {
-        return $this->brightspaceAPI->putRegistry($course->outcomes);
+        return $this->brightspaceApi->outcome->update($course->outcomes);
     }
 }

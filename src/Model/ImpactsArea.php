@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Gsu\CoreImpactsImport\Model;
 
+use Brightspace\Api\Outcome\Model\OutcomeRegistry;
 use Gadget\Io\Cast;
 
 final class ImpactsArea
